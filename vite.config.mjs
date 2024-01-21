@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import * as esbuild from 'esbuild'
 
+// This plugin allows us to use JSX in .js files
 const rollupPlugin = (matchers) => ({
   name: 'js-in-jsx',
   load(id) {
@@ -13,6 +14,9 @@ const rollupPlugin = (matchers) => ({
   },
 })
 
+// The original example app code used `.js` for all component files,
+// which worked with Create React App.
+// Now that the template uses Vite, we mimic that behavior.
 export default defineConfig({
   plugins: [react()],
   build: {
