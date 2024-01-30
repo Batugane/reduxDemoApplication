@@ -6,9 +6,10 @@ import { PostAuthor } from './PostAuthor'
 import { TimeAgo } from './TimeAgo'
 import { ReactionButtons } from './ReactionButtons'
 
-export const PostsList = () => {
-  const posts = useSelector((state) => state.posts)
+import { selectAllPosts } from './postsSlice'
 
+export const PostsList = () => {
+  const posts = useSelector(selectAllPosts)
   // Sort posts in reverse chronological order by datetime string
   const orderedPosts = posts
     .slice()
