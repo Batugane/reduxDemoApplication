@@ -7,7 +7,7 @@ import { selectAllPosts, fetchPosts } from './postsSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { Spinner } from '../../components/Spinner'
 
-const PostExcerpt = ({ post }) => {
+let PostExcerpt = ({ post }) => {
   return (
     <article className="post-excerpt">
       <h3>{post.title}</h3>
@@ -24,7 +24,7 @@ const PostExcerpt = ({ post }) => {
     </article>
   )
 }
-
+PostExcerpt = React.memo(PostExcerpt)
 export const PostsList = () => {
   const dispatch = useDispatch()
   const posts = useSelector(selectAllPosts)
